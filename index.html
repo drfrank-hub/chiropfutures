@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChiroFutures – Homepage Redesign Concept</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plum:#5c2a62; --plum-dark:#3f1a45; --plum-soft:#f3ecf4;
+    --sand:#f7f3ec; --ink:#241a27; --muted:#6a5f6e; --line:#e4dce6; --accent:#c9a24b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,sans-serif;color:var(--ink);line-height:1.6;background:#fff}
+  h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.15;letter-spacing:-.01em}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+  .concept{background:var(--ink);color:#e9e2ec;font-size:12.5px;text-align:center;padding:7px 16px;letter-spacing:.02em}
+
+  .topbar{background:var(--plum-dark);color:#eadff0;font-size:13px}
+  .topbar .wrap{display:flex;justify-content:flex-end;gap:24px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+  .topbar a:hover{text-decoration:underline}
+
+  header.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  header.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{font-family:Fraunces,serif;font-size:26px;font-weight:600;color:var(--plum);display:flex;align-items:center;gap:10px}
+  .brand .dot{width:26px;height:26px;border-radius:50%;background:
+     repeating-conic-gradient(var(--plum) 0 6deg,#fff 6deg 12deg);border:2px solid var(--plum)}
+  .brand span{color:#7b6f80;font-weight:500}
+  nav ul{display:flex;gap:26px;list-style:none;font-size:14.5px;font-weight:500}
+  nav a{color:var(--muted);padding:6px 0;border-bottom:2px solid transparent}
+  nav a:hover{color:var(--plum);border-color:var(--plum)}
+  .btn{display:inline-block;padding:13px 24px;border-radius:999px;font-weight:600;font-size:15px;transition:.2s}
+  .btn-primary{background:var(--plum);color:#fff}
+  .btn-primary:hover{background:var(--plum-dark);transform:translateY(-1px)}
+  .btn-ghost{border:1.5px solid #fff;color:#fff}
+  .btn-ghost:hover{background:#fff;color:var(--plum)}
+  .btn-sm{padding:9px 18px;font-size:14px}
+  @media(max-width:900px){nav ul{display:none}}
+
+  .hero{background:linear-gradient(135deg,var(--plum-dark),var(--plum) 60%,#7a3a80);color:#fff;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-140px;top:-140px;width:520px;height:520px;border-radius:50%;
+     background:repeating-conic-gradient(rgba(255,255,255,.07) 0 6deg,transparent 6deg 12deg)}
+  .hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;padding-top:96px;padding-bottom:96px;position:relative;z-index:1;align-items:center}
+  .eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#e6cf9a;font-weight:600;margin-bottom:18px}
+  .hero h1{font-size:clamp(38px,5vw,60px);margin-bottom:22px}
+  .hero p.lead{font-size:18px;color:#eadff0;max-width:560px;margin-bottom:34px}
+  .hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+  .quote-card{background:#fff;color:var(--ink);border-radius:20px;padding:30px;box-shadow:0 24px 60px rgba(0,0,0,.28)}
+  .quote-card h3{font-size:22px;color:var(--plum);margin-bottom:8px}
+  .quote-card p{font-size:14.5px;color:var(--muted);margin-bottom:18px}
+  .quote-card label{display:block;font-size:12.5px;font-weight:600;margin:12px 0 5px}
+  .quote-card input,.quote-card select{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff}
+  .quote-card .btn{width:100%;margin-top:18px;border:0;cursor:pointer;text-align:center}
+  .fine{font-size:12px;color:var(--muted);margin-top:12px}
+  @media(max-width:900px){.hero .wrap{grid-template-columns:1fr;padding-top:64px;padding-bottom:64px}}
+
+  .strip{background:var(--sand);border-bottom:1px solid var(--line)}
+  .strip .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-top:30px;padding-bottom:30px}
+  .strip div{display:flex;gap:14px;align-items:flex-start}
+  .strip b{display:block;font-family:Fraunces,serif;font-size:19px;color:var(--plum)}
+  .strip small{color:var(--muted);font-size:14px}
+  .ico{flex:none;width:42px;height:42px;border-radius:12px;background:var(--plum);color:#fff;display:grid;place-items:center;font-size:19px}
+  @media(max-width:800px){.strip .wrap{grid-template-columns:1fr}}
+
+  section{padding:88px 0}
+  .sec-head{max-width:640px;margin-bottom:44px}
+  .sec-head h2{font-size:clamp(30px,3.6vw,42px);color:var(--plum-dark);margin-bottom:14px}
+  .sec-head p{color:var(--muted);font-size:17px}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{border:1px solid var(--line);border-radius:18px;padding:28px;background:#fff;transition:.2s}
+  .card:hover{border-color:var(--plum);box-shadow:0 14px 34px rgba(92,42,98,.12);transform:translateY(-3px)}
+  .card h3{font-size:21px;margin:16px 0 8px;color:var(--plum-dark)}
+  .card p{color:var(--muted);font-size:15px;margin-bottom:14px}
+  .card a.more{color:var(--plum);font-weight:600;font-size:14.5px}
+  @media(max-width:900px){.cards{grid-template-columns:1fr}}
+
+  .founders{background:var(--plum-soft)}
+  .founders .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .founders h2{font-size:clamp(30px,3.6vw,42px);color:var(--plum-dark);margin-bottom:18px}
+  .founders p{color:#4a3f4e;margin-bottom:16px;font-size:16.5px}
+  .people{display:grid;gap:18px}
+  .person{background:#fff;border-radius:18px;padding:24px 26px;display:flex;gap:18px;align-items:center;border:1px solid var(--line)}
+  .avatar{flex:none;width:64px;height:64px;border-radius:50%;background:var(--plum);color:#fff;display:grid;place-items:center;font-family:Fraunces,serif;font-size:22px}
+  .person b{font-family:Fraunces,serif;font-size:19px;color:var(--plum-dark);display:block}
+  .person span{color:var(--muted);font-size:14.5px}
+  .sig{font-family:Fraunces,serif;font-style:italic;color:var(--plum);font-size:18px}
+  @media(max-width:900px){.founders .grid{grid-template-columns:1fr;gap:32px}}
+
+  .endorse .box{border:1px solid var(--line);border-radius:22px;padding:40px;display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;background:#fff}
+  .endorse .avatar{width:84px;height:84px;font-size:28px;background:var(--accent);color:#2b2112}
+  .endorse blockquote{font-family:Fraunces,serif;font-size:22px;line-height:1.4;color:var(--plum-dark)}
+  .endorse cite{display:block;margin-top:14px;font-style:normal;font-family:Inter,sans-serif;font-size:14px;color:var(--muted)}
+  @media(max-width:700px){.endorse .box{grid-template-columns:1fr}}
+
+  .cta-band{background:var(--plum-dark);color:#fff;text-align:center;padding:76px 0}
+  .cta-band h2{font-size:clamp(28px,3.4vw,40px);margin-bottom:14px}
+  .cta-band p{color:#dccbe2;max-width:600px;margin:0 auto 28px}
+  .cta-band .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  footer{background:#1d1320;color:#b9aebd;font-size:14px;padding:48px 0 28px}
+  footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;margin-bottom:32px}
+  footer h4{color:#fff;font-size:14px;margin-bottom:12px;letter-spacing:.06em;text-transform:uppercase}
+  footer li{list-style:none;margin-bottom:6px}
+  footer a:hover{color:#fff}
+  footer .legal{border-top:1px solid #34273a;padding-top:20px;font-size:12.5px}
+  @media(max-width:800px){footer .cols{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="concept">Homepage redesign concept &middot; illustrative draft prepared for ChiroFutures review &middot; not the live website</div>
+
+<div class="topbar"><div class="wrap">
+  <a href="tel:18002199090">&#9742; 1.800.219.9090</a>
+  <a href="mailto:help@chirofutures.org">&#9993; help@chirofutures.org</a>
+</div></div>
+
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#top"><i class="dot"></i>Chiro<span>Futures</span></a>
+  <nav><ul>
+    <li><a href="#coverage">Liability Coverage</a></li>
+    <li><a href="#risk">Risk Management</a></li>
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+  </ul></nav>
+  <a class="btn btn-primary btn-sm" href="#quote">Get a Quote</a>
+</div></header>
+
+<main id="top">
+  <div class="hero"><div class="wrap">
+    <div>
+      <div class="eyebrow">Chiropractic malpractice insurance &amp; risk management partners</div>
+      <h1>Securing the future. Managing your risk.</h1>
+      <p class="lead">A partnership approach to malpractice coverage &mdash; a quality, comprehensive, competitive policy, plus the tools and ideas to help minimize the inherent risks of growing your practice.</p>
+      <div class="cta">
+        <a class="btn btn-ghost" href="#quote" style="background:#fff;color:var(--plum)">Request a premium indication</a>
+        <a class="btn btn-ghost" href="#about">Meet the founders</a>
+      </div>
+    </div>
+
+    <form class="quote-card" id="quote" onsubmit="event.preventDefault();this.querySelector('button').textContent='Concept only – form not connected';">
+      <h3>Online quote inquiry</h3>
+      <p>Get a premium indication in minutes. A bindable proposal follows your completed application.</p>
+      <label for="n">Name</label><input id="n" placeholder="Dr. Jane Smith">
+      <label for="e">Email</label><input id="e" type="email" placeholder="you@yourpractice.com">
+      <label for="s">State of practice</label>
+      <select id="s"><option>Select state</option><option>Florida</option><option>Other</option></select>
+      <button class="btn btn-primary" type="submit">Start my inquiry</button>
+      <p class="fine">Prefer paper? Download an application and send it by fax or email.</p>
+    </form>
+  </div></div>
+
+  <div class="strip"><div class="wrap">
+    <div><span class="ico">&#9878;</span><p><b>Expert-witness experience</b><small>Founders have defended chiropractors in malpractice cases and board actions.</small></p></div>
+    <div><span class="ico">&#9733;</span><p><b>Financially strong carrier</b><small>Broad coverages behind a comprehensive liability policy.</small></p></div>
+    <div><span class="ico">&#9829;</span><p><b>Built around your practice</b><small>Designed to support an optimal patient experience.</small></p></div>
+  </div></div>
+
+  <section id="coverage">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>A different experience than your past malpractice insurer.</h2>
+        <p>Focus on growing your practice. We&rsquo;ll help you manage what can go wrong.</p>
+      </div>
+      <div class="cards" id="risk">
+        <article class="card"><span class="ico">&#9776;</span><h3>Liability coverage</h3><p>A quality, comprehensive and competitive malpractice liability policy for chiropractors.</p><a class="more" href="#quote">Explore coverage &rarr;</a></article>
+        <article class="card"><span class="ico">&#9873;</span><h3>Risk management</h3><p>Proactive tools and ideas to help minimize the inherent risks of building a busy practice.</p><a class="more" href="#contact">See resources &rarr;</a></article>
+        <article class="card"><span class="ico">&#9993;</span><h3>Members &amp; newsletter</h3><p>Stay current with practical guidance and member-only materials from the ChiroFutures team.</p><a class="more" href="#contact">Learn more &rarr;</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="founders" id="about">
+    <div class="wrap grid">
+      <div id="philosophy">
+        <div class="eyebrow" style="color:var(--plum)">Our philosophy</div>
+        <h2>Experience from the toughest malpractice cases.</h2>
+        <p>We have worked with chiropractors hand in hand through the nightmares that occur when patients are unhappy. ChiroFutures&rsquo; commitment is to share that seasoned experience with you.</p>
+        <p>The result: you&rsquo;re protected by a financially strong carrier and broad coverages, and can grow a busy practice full of happy patients.</p>
+        <p class="sig">Yours in Chiropractic.</p>
+      </div>
+      <div class="people">
+        <div class="person"><div class="avatar">AC</div><div><b>Anthony Carrino, DC, FICPA</b><span>Co-Founder &middot; chiropractor for over 30 years</span></div></div>
+        <div class="person"><div class="avatar">MM</div><div><b>Matthew McCoy, DC, MPH</b><span>Co-Founder &middot; chiropractor for over 30 years</span></div></div>
+        <p style="font-size:14.5px;color:var(--muted)">Consultants and expert witnesses defending chiropractors in malpractice cases and regulatory board actions throughout their careers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="endorse">
+    <div class="wrap">
+      <div class="box">
+        <div class="avatar">CK</div>
+        <div>
+          <blockquote>Protect your future and support the future of the profession. Choose a professional liability company that shares your core values.</blockquote>
+          <cite>Endorsed by Christopher Kent, DC, JD &middot; On Purpose, LLC</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band" id="contact"><div class="wrap">
+    <h2>Ready to see what your coverage could look like?</h2>
+    <p>Request a premium indication online, or reach our office directly.</p>
+    <div class="cta">
+      <a class="btn btn-primary" style="background:#fff;color:var(--plum)" href="#quote">Get an online quote</a>
+      <a class="btn btn-ghost" href="tel:18002199090">Call 1.800.219.9090</a>
+    </div>
+  </div></div>
+</main>
+
+<footer><div class="wrap">
+  <div class="cols">
+    <div><h4>ChiroFutures</h4><p>Chiropractic malpractice insurance &amp; risk management partners.</p></div>
+    <div><h4>Explore</h4><ul><li><a href="#coverage">Liability Coverage</a></li><li><a href="#risk">Risk Management</a></li><li><a href="#philosophy">Philosophy</a></li><li><a href="#about">About Us</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li>Tel: 1.800.219.9090</li><li>Fax: 1.800.219.9619</li><li><a href="mailto:help@chirofutures.org">help@chirofutures.org</a></li></ul></div>
+  </div>
+  <div class="legal">Design concept for discussion only. Copy adapted from chirofutures.org. All names, marks and policy information belong to ChiroFutures.</div>
+</div></footer>
+
+</body>
+</html>
